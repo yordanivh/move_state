@@ -1,0 +1,47 @@
+{
+  "version": 4,
+  "terraform_version": "0.12.18",
+  "serial": 3,
+  "lineage": "dd20f9d5-75b2-14cc-c2a5-c24a01f588ea",
+  "outputs": {},
+  "resources": [
+    {
+      "mode": "managed",
+      "type": "null_resource",
+      "name": "hello",
+      "provider": "provider.null",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "id": "6929546289524792140",
+            "triggers": null
+          },
+          "private": "bnVsbA==",
+          "dependencies": [
+            "random_pet.name"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "random_pet",
+      "name": "name",
+      "provider": "provider.random",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "id": "separately-vastly-hip-bedbug",
+            "keepers": null,
+            "length": 4,
+            "prefix": null,
+            "separator": "-"
+          },
+          "private": "bnVsbA=="
+        }
+      ]
+    }
+  ]
+}

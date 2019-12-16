@@ -1,5 +1,4 @@
 # move_state
-This repository contains code that was modified. The new code was not applied to change the tfstate but the tfstate was modified to facilitate the new code.
 
 # What this repo does
 This repo's intention is to show how you can use the move state command to change the state of the terraform code without having to run apply.If make a change on the code and move to a module you can just make a change on the tfstate and will not need to destroy and re-deploy the resource.

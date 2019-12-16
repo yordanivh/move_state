@@ -85,7 +85,8 @@ null_resource.hello: Creation complete after 0s [id=5280407370708761972]
  * Move the main.tf file in null_resource folder to the initial_code folder and check what changes have been made.
  
  ```
- mv ../null_resource/main.tf .; cat main.tf
+ mv ../null_resource/main.tf .
+ cat main.tf
  ```
  
  * We have added a module in place of the random_pet resource .The module is located in the random_pet folder.

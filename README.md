@@ -28,6 +28,7 @@ This repo will show you the terraform state mv command and how to use to avoid r
  * Start of in the initial_code folder.
 ```
 cd initial_code
+cat main.tf
 ```
 you will see two resources there random_pet and null_resource
 
@@ -80,7 +81,7 @@ null_resource.hello (local-exec): Executing: ["/bin/sh" "-c" "echo Hello forcibl
 null_resource.hello (local-exec): Hello forcibly-vaguely-key-mutt
 null_resource.hello: Creation complete after 0s [id=5280407370708761972]
 ```
- * Now you have the resources created and tfstate file is up-todate.
+ * Now you have the resources created and tfstate file is up-to-date.
  
  * Move the main.tf file in null_resource folder to the initial_code folder and check what changes have been made.
  
@@ -97,14 +98,10 @@ null_resource.hello: Creation complete after 0s [id=5280407370708761972]
  terraform init
  ```
 
- * If we apply the changes we will have to to redeploy the random_pet resource.
+ * Run terraform plan. On the output you will see the following
  
  ```
- initial_code (newbrnach) $ terraform apply
-random_pet.name: Refreshing state... [id=forcibly-vaguely-key-mutt]
-null_resource.hello: Refreshing state... [id=5280407370708761972]
-
-An execution plan has been generated and is shown below.
+ An execution plan has been generated and is shown below.
 Resource actions are indicated with the following symbols:
   + create
   - destroy
@@ -113,7 +110,7 @@ Terraform will perform the following actions:
 
   # random_pet.name will be destroyed
   - resource "random_pet" "name" {
-      - id        = "forcibly-vaguely-key-mutt" -> null
+      - id        = "forcibly-plainly-frank-barnacle" -> null
       - length    = 4 -> null
       - separator = "-" -> null
     }
@@ -127,6 +124,7 @@ Terraform will perform the following actions:
 
 Plan: 1 to add, 0 to change, 1 to destroy.
 ```
+So if you apply the code right now the resource will be destroyed first and then recreated.
 
 * But if we use terraform state mv we don't need to do that.We just need to change the resource name to be the same as the module.
 ```
@@ -135,13 +133,13 @@ Move "random_pet.name" to "module.random_pet.random_pet.name"
 Successfully moved 1 object(s).
 ```
 * Now if we run apply nothing will need to change and so the re-deployment has been avoided
-
+```
 initial_code (newbrnach) $ terraform apply
 module.random_pet.random_pet.name: Refreshing state... [id=forcibly-vaguely-key-mutt]
 null_resource.hello: Refreshing state... [id=5280407370708761972]
 
 Apply complete! Resources: 0 added, 0 changed, 0 destroyed.
-
+```
 * Run Destroy command to destroy the resources. 
 ```
 initial_code (newbrnach) $ terraform destroy

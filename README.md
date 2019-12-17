@@ -175,3 +175,4 @@ module.random_pet.random_pet.name: Destruction complete after 0s
 
 Destroy complete! Resources: 2 destroyed.
 ```
+
